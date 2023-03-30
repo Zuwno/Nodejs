@@ -28,7 +28,7 @@ export const signin = async (req, res) => {
                 message: "Mật khẩu không đúng",
             });
         }
-        const token = jwt.sign({ id: user._id }, "banThayDat", { expiresIn: "1d" });
+        const token = jwt.sign({ id: user._id }, "Zuwno", { expiresIn: "1d" });
         return res.status(200).json({
             message: "Đăng nhập thành công",
             accessToken: token,

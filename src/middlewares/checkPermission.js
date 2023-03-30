@@ -10,7 +10,8 @@ export const checkPermission = async (req, res, next) => {
         }
         // Bearer xxx ->
         const token = req.headers.authorization.split(" ")[1]; // ["bearer", "xxx"]
-        const { id } = jwt.verify(token, "banThayDat");
+        
+        const { id } = jwt.verify(token, "Zuwno");
 
         const user = await User.findById(id);
         if (user.role !== "admin") {
@@ -22,9 +23,3 @@ export const checkPermission = async (req, res, next) => {
         next();
     } catch (error) {}
 };
-
-// B1: Kiểm tra xem user đã đăng nhập chưa?
-// B2: Kiểm xem token có đúng hay không?
-// B3: Giải mã token và tìm user trong db dựa theo id
-// B4: Kiểm tra user đấy có phải là admin không? nếu không phải cút
-// B5: Cho phép đi tiếp
