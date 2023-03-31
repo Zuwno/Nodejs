@@ -16,7 +16,7 @@ export const checkPermission = async (req, res, next) => {
         const user = await User.findById(id);
         if (user.role !== "admin") {
             return res.status(403).json({
-                message: "Bạn không có quyền truy cập tài nguyên, cút!",
+                message: "Bạn không có quyền truy cập tài nguyên",
             });
         }
 
